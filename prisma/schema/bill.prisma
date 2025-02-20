@@ -1,0 +1,39 @@
+model Bill {
+  id                Int       @id @default(autoincrement())
+  bill_name         String
+  bill_amount       Int
+  date_of_month_due Int
+  frequency         Frequency
+  category          Category
+  status            Status
+  yearly_cost       Int
+  next_due_date     DateTime
+  company_logo      String
+
+  user_id Int
+  user    User @relation(fields: [user_id], references: [id])
+  // account_id Int
+  // account    Account @relation(fields: [account_id], references: [id])
+}
+
+enum Frequency {
+  Monthly
+  Yearly
+  Quarterly
+  BiAnnually
+  Weekly
+  EveryPaycheck
+}
+
+enum Category {
+  BankingFee
+  SubscriptionVariable
+  SubscriptionYearly
+  SubscriptionMonthly
+  FixedExpense
+}
+
+enum Status {
+  Active
+  Inactive
+}
