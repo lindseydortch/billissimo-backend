@@ -10,6 +10,7 @@ model Bill {
   next_due_date     DateTime
   company_logo      String
 
+  // Foreign Relationships
   user_id Int
   user    User @relation(fields: [user_id], references: [id])
   // account_id Int
