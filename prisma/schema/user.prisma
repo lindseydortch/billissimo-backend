@@ -5,5 +5,6 @@ model User {
   email      String @unique
   image      String
 
-  bills Bill[]
+  bills    Bill[]
+  accounts Account[]
 }
