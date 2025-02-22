@@ -1,0 +1,9 @@
+model BillToPaycheck {
+  id Int @id @default(autoincrement())
+
+  // Foreign Relationships
+  paycheck_id Int
+  paycheck    Paycheck @relation(fields: [paycheck_id], references: [id])
+  bill_id     Int
+  bill        Bill     @relation(fields: [bill_id], references: [id])
+}

@@ -1,0 +1,18 @@
+model PaycheckSetting {
+  id              Int          @id @default(autoincrement())
+  pay_frequency   PayFrequency
+  paycheck_amount Int
+  first_paycheck  DateTime
+
+  // Foreign Relationships
+  user_id  Int       @unique
+  user     User      @relation(fields: [user_id], references: [id])
+  Paycheck Paycheck?
+}
+
+enum PayFrequency {
+  BiWeekly
+  Weekly
+  Monthly
+  BiMonthly
+}
