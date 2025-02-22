@@ -6,6 +6,7 @@ model User {
   image      String
 
   bills            Bill[]
+  paychecks        Paycheck[]
   accounts         Account[]
   paycheckSettings PaycheckSetting?
 }
