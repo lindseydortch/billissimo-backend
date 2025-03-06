@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Post, Param, Patch } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Post,
+  Param,
+  Patch,
+  Delete,
+} from '@nestjs/common';
 import { UserService } from 'src/users/user.service';
 import { User as UserModel } from '@prisma/client';
 
@@ -39,5 +47,10 @@ export class UserController {
       data: userData,
       where: { id: Number(id) },
     });
+  }
+
+  @Delete('users/:id')
+  async deleteUserByID(@Param('id') id: string): Promise<UserModel> {
+    return this.userService.deleteUser({ id: Number(id) });
   }
 }
