@@ -5,10 +5,10 @@ model Account {
   direct_deposit_allocation Int
 
   // Foreign Relationships
-  bill_id Int
-  bill    Bill?
-  user_id Int
-  user    User  @relation(fields: [user_id], references: [id])
+  bill_id Int?
+  bill    Bill[]
+  user_id Int?
+  user    User?  @relation(fields: [user_id], references: [id])
 }
 
 enum accountType {

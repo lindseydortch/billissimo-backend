@@ -8,10 +8,10 @@ model Paycheck {
   company_logo         String?
 
   // Foreign Relationships
-  paycheck_setting_id Int              @unique
+  paycheck_setting_id Int?             @unique
   paycheck_setting    PaycheckSetting? @relation(fields: [paycheck_setting_id], references: [id])
   bills               BillToPaycheck[]
-  user_id             Int
-  user                User             @relation(fields: [user_id], references: [id])
+  user_id             Int?
+  user                User?            @relation(fields: [user_id], references: [id])
   paycheckSettingId   Int?
 }
